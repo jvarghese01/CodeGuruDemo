@@ -29,7 +29,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class GreetingControllerTests {
+public class DemoControllerTests {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -38,7 +38,7 @@ public class GreetingControllerTests {
 	public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
 
 		this.mockMvc.perform(get("/greeting")).andDo(print()).andExpect(status().isOk())
-				.andExpect(jsonPath("$.content").value("Hello, World!"));
+				.andExpect(jsonPath("$.content").value("Hello, Demo!"));
 	}
 
 	@Test

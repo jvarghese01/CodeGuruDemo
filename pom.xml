@@ -14,7 +14,7 @@
 	<name>rest-service-complete</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>13</java.version>
+		<java.version>11</java.version>
 	</properties>
 	    <repositories>
         <repository>
