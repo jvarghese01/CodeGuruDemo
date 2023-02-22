@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /target/rest-service-complete-0.0.1-SNAPSHOT.jar
+    destination: /var/myapp/rest-service-complete-0.0.1-SNAPSHOT.jar
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server.sh
+      timeout: 300
+      runas: root
