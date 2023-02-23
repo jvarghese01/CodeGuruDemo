@@ -1,1 +1,1 @@
-$ service myapp start
+service myapp start

@@ -3,15 +3,28 @@ package com.example.restservice;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
 public class DemoUtil {
     
-    public static File convertImagetoGrayScale(File input, File output){
+    public static File convertImagetoGrayScale(InputStream input, File output){
+
+
+        
+
+
+
         //convert an image to grayscale
         BufferedImage bi;
         try {
+
+
+            //read image from InputStream
+            //ImageIO.read(input);
+
+
             bi = ImageIO.read(input);
         
             int width = bi.getWidth();

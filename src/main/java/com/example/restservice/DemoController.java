@@ -16,10 +16,6 @@ public class DemoController {
 
 	@GetMapping("/greeting")
 	public Demo greeting(@RequestParam(value = "name", defaultValue = "Demo") String name) throws IOException {
-
-		
-		File file = new File("/Users/javarghe/Downloads/t.jpg");
-		DemoUtil.convertImagetoGrayScale(file, new File("/Users/javarghe/Downloads/t1.jpg"));
 		return new Demo(counter.incrementAndGet(), String.format(template, name));
 	}
 }

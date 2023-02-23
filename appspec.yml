@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /target/rest-service-complete-0.0.1-SNAPSHOT.jar
-    destination: /var/myapp/rest-service-complete-0.0.1-SNAPSHOT.jar
+    destination: /var/myapp
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
