@@ -22,7 +22,7 @@ public class RestServiceApplication {
     	
        Profiler.builder()
         .profilingGroupName("testForTFC")
-        .awsCredentialsProvider(ProfileCredentialsProvider.create("acct2"))
+        //.awsCredentialsProvider(ProfileCredentialsProvider.create("acct2"))
         .withHeapSummary(true)
         .build()
         .start();
