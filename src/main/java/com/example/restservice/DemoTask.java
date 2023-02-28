@@ -22,7 +22,6 @@ public class DemoTask {
 
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-
     @Value("classpath:t.jpg")
     Resource resourceFile;
     
@@ -33,7 +32,6 @@ public class DemoTask {
         //reference resource file
         Resource resource = new ClassPathResource("t.jpg");
         InputStream is = resource.getInputStream();
-    
 
         //create a temp file
         File tempFile = File.createTempFile("temp", ".jpg");
@@ -41,8 +39,5 @@ public class DemoTask {
 		DemoUtil.convertImagetoGrayScale(is, tempFile);
         log.info("outputPath: "+tempFile.getAbsolutePath());
         tempFile.delete();
-
-
-
 	}
 }

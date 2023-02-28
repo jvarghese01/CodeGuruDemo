@@ -1,1 +1,1 @@
-ls
+service myapp stop

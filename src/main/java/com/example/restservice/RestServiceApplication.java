@@ -18,8 +18,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class RestServiceApplication {
 
     public static void main(String[] args) {
-    	
-    	
+        
        Profiler.builder()
         .profilingGroupName("testForTFC")
         //.awsCredentialsProvider(ProfileCredentialsProvider.create("acct2"))

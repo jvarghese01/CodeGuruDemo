@@ -7,24 +7,18 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class DemoUtil {
     
+    private static final Logger logger = LoggerFactory.getLogger(DemoTask.class);
+
     public static File convertImagetoGrayScale(InputStream input, File output){
-
-
-        
-
-
-
         //convert an image to grayscale
         BufferedImage bi;
         try {
-
-
             //read image from InputStream
-            //ImageIO.read(input);
-
-
             bi = ImageIO.read(input);
         
             int width = bi.getWidth();
@@ -41,15 +35,14 @@ public class DemoUtil {
                 }
             }
             ImageIO.write(bi, "jpg", output);
-            System.out.println("Image converted successfully");
+            logger.info("Image converted successfully");
             return output;
         }
         catch (IOException e) {
             e.printStackTrace();
             return null;
         }
-        
-
     }
-
 }
+
+
