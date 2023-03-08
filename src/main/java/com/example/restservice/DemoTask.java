@@ -39,5 +39,6 @@ public class DemoTask {
 		DemoUtil.convertImagetoGrayScale(is, tempFile);
         log.info("outputPath: "+tempFile.getAbsolutePath());
         tempFile.delete();
+
 	}
 }

@@ -10,6 +10,11 @@ import javax.imageio.ImageIO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+
 public class DemoUtil {
     
     private static final Logger logger = LoggerFactory.getLogger(DemoTask.class);
@@ -43,6 +48,24 @@ public class DemoUtil {
             return null;
         }
     }
+
+    //generate a QR code for a given URL
+    public static File generateQRCode(String url, File output){
+        try{
+            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+            BitMatrix bitMatrix = qrCodeWriter.encode(url, BarcodeFormat.QR_CODE, 200, 200);
+            MatrixToImageWriter.writeToPath(bitMatrix, "PNG", output.toPath());
+            logger.info("QR code generated successfully");
+            return output;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
+    
+
+
 
 
