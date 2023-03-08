@@ -40,5 +40,7 @@ public class DemoTask {
         log.info("outputPath: "+tempFile.getAbsolutePath());
         tempFile.delete();
 
+        DemoUtil.calculate(100000);
+
 	}
 }

@@ -49,6 +49,14 @@ public class DemoUtil {
         }
     }
 
+    public static void calculate(int x){
+        double y = (double)x;
+        for (int a=0;a<x;a++){
+            double z = Math.tan(y)*Math.tan(y+1);
+        }
+        logger.info("Calculation completed");
+    }
+
     //generate a QR code for a given URL
     public static File generateQRCode(String url, File output){
         try{
