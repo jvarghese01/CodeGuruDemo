@@ -38,6 +38,7 @@ public class DemoTask {
 
 		DemoUtil.convertImagetoGrayScale(is, tempFile);
         log.info("outputPath: "+tempFile.getAbsolutePath());
+        DemoUtil.calculateSHA512(tempFile);
         tempFile.delete();
 
         DemoUtil.calculate(100000);

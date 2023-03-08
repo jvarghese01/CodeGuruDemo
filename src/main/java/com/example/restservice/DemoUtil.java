@@ -4,11 +4,19 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
+import org.apache.catalina.realm.MessageDigestCredentialHandler;
+import org.apache.logging.log4j.message.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.web.client.RestTemplate;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
@@ -71,7 +79,49 @@ public class DemoUtil {
             return null;
         }
     }
+
+    public static void makeRestCall(String url){
+        RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
+        RestTemplate restTemplate = restTemplateBuilder.build();
+        
+        restTemplate.getForObject(url, String.class);
+        logger.info("Rest call completed");
+        
+    }
+
+    //calculate SHA-512 for a given file
+    public static String calculateSHA512(File input){
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA-512");
+                //get bytest from input
+                byte[] inputB = Files.readAllBytes(Paths.get(input.getPath()));
+
+                md.update(inputB);
+
+                byte[] digest = md.digest();
+                StringBuffer sb = new StringBuffer();
+                for (byte b : digest) {
+                    sb.append(String.format("%02x", b & 0xff));
+                }
+                logger.info(sb.toString());
+                logger.info("SHA-512 calculated successfully");
+                return sb.toString();
+            }
+             catch (NoSuchAlgorithmException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            return null;
+    }
+
 }
+
+
+
+
     
 
 
