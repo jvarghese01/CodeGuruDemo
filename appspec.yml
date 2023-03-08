@@ -3,6 +3,7 @@ os: linux
 files:
   - source: /target/rest-service-complete-0.0.1-SNAPSHOT.jar
     destination: /var/myapp/
+  file_exists_behavior: OVERWRITE
 hooks:
   BeforeInstall:
     - location: scripts/install_dependencies.sh
