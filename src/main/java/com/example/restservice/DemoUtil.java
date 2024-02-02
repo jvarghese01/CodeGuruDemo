@@ -117,11 +117,10 @@ public class DemoUtil {
             return null;
     }
     
-    String username = "abcdef";
-    String password = "1234567";
-
-    private static String AWS_ACCESS_KEY = "AKIAJLGJBXH4XXXXXXXX";
-    private static String AWS_SECRET_ACCESS_KEY = "bwbEsUrEkbZfcHKO3MzSyZ+vFiYaTflqXXXXXXXX"; 
+    public void getDemo(String id){
+        String sql = "SELECT * FROM customer WHERE id='" + id + "'";
+        jdbcTemplate.execute(sql);
+    }
     
 }
 
