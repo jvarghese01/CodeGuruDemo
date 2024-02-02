@@ -123,7 +123,6 @@ public class DemoUtil {
     private static String AWS_ACCESS_KEY = "AKIAJLGJBXH4XXXXXXXX";
     private static String AWS_SECRET_ACCESS_KEY = "bwbEsUrEkbZfcHKO3MzSyZ+vFiYaTflqXXXXXXXX"; 
     
-
 }
 
 
